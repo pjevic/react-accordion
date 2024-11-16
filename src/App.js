@@ -34,7 +34,7 @@ function Accordion({ data }) {
       {data.map((item, index) => (
         <AccorionItem
           key={index}
-          num={index}
+          num={index + 1}
           title={item.title}
           curOpen={curOpen}
           onOpen={setCurOpen}
@@ -50,7 +50,7 @@ function AccorionItem({ children, num, title, text, curOpen, onOpen }) {
   const isOpen = curOpen === num;
 
   function handleToggle() {
-    onOpen(num);
+    onOpen(isOpen ? null : num);
   }
 
   return (
